@@ -38,7 +38,7 @@ const TaskHookForm = ({ kisiler, submitFn }) => {
             },
           })}
         />
-        <p className="input-error">{errors.title?.message}</p>
+			{errors.title && <p>{errors.title.message}</p>}
       </div>
 
       <div className="form-line">
@@ -57,7 +57,7 @@ const TaskHookForm = ({ kisiler, submitFn }) => {
             },
           })}
         />
-        <p className="input-error">{errors.description?.message}</p>
+        	{errors.description && <p>{errors.description.message}</p>}
       </div>
 
       <div className="form-line">
@@ -76,7 +76,7 @@ const TaskHookForm = ({ kisiler, submitFn }) => {
             </label>
           ))}
         </div>
-        <p className="input-error">{errors.people?.message}</p>
+        {errors.people && <p>{errors.people.message}</p>}
       </div>
 
       <div className="form-line">
