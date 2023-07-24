@@ -1,6 +1,6 @@
 import React from "react";
-
 const Task = ({ taskObj, onComplete }) => {
+
   return (
     <div className="task">
       <h3>{taskObj.title}</h3>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./app.css";
 import Task from "./Task";
-import TaskForm from "./TaskForm";
+//import TaskForm from "./TaskForm";
 import TaskHookForm from "./TaskHookForm";
 import PeopleForm from "./PeopleForm";
 import { initialTasks, initialTeam } from "./data";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -19,16 +21,23 @@ function App() {
     setTeam([...team, yeniKisi])
   }
 
+
   function handleComplete(id) {
-    console.log("tamamlama fonksiyonunu buraya yazın")
+    const Gorev = tasks.find((task) => task.id === id);
+      if (Gorev?.status === "yapılacak") {
+      Gorev.status = "yapıldı";
+      setTasks([...tasks]);
+      toast("Görev başarıyla tamamlandı!");
+    }
   }
+  
 
   return (
     <div className="app">
       <div className="formColumn">
         <div className="form-container">
           <h2>Yeni Task</h2>
-          {/* <TaskForm kisiler={team} submitFn={handleTaskSubmit} /> */}
+          {/* {<TaskForm kisiler={team} submitFn={handleTaskSubmit} /> } */}
           <TaskHookForm kisiler={team} submitFn={handleTaskSubmit} />
         </div>
 
